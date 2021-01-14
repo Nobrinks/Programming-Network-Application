@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client {
 
@@ -20,18 +21,19 @@ public class Client {
 		//I/O Buffers: and they're exactly the same as on the server side
 		BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		PrintWriter out_socket = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-		
 		//These are the basic requirements for our client-server communication, and now we need to worry about the protocol
 		//A protocol is pretty much just a set of rules by which communication between two or more sides occurs, so we need to decide who
 		//is the first to send a message, what kind of message, what kind of responses, for now we're going to use a simple protocol
 		//The client is going to connect to the server, the server is going to say "welcome", the client is going to say "thanks" and then
 		//they're going to disconnect
+		
 		String message = in_socket.readLine();
 		System.out.println("Server says: " + message);
 		out_socket.println("Thanks");
 		socket.close();
 		System.out.println("Socket closed.");
 		//In order to switch between console messages for server and client, you need to press "display selected console"
+		
 	}
 	
 	public static void main(String[] args) {
@@ -44,3 +46,10 @@ public class Client {
 	}
 	
 }
+//6. 
+//Client Side
+//All we need is the Regular Socket on the client side
+
+
+
+

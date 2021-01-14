@@ -1,7 +1,4 @@
-//Due to the package declaration, it takes to go back a directory and run the following command:
-//java simple_tcp.Server. Or just take the package out and run normally:
-//javac Server.java -> java Server
-package simple_tcp;
+package simple_tcp_2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -35,12 +32,19 @@ public class Server {
 		//OutputStreamWriter, here we're actuallly writing the data into the buffer
 		PrintWriter out_socket = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 		
-		//From this moment on, we're deciding what kind of communication we're going to have between our server and client
-		//as a server we'll send a 'welcome'
+		int secret_number = (int)(Math.random()*10+1);
 		
-		out_socket.println("Welcome!"); //send "welcome" to the client
+		do {
+			
+		} while (condition);
+		
+		
+		//From this moment on, we're deciding what kind of communication we're going to have between our server and client
+		//as a server we'll send a 'welcome'		
+		/*out_socket.println("Welcome!"); //send "welcome" to the client
 		String message = in_socket.readLine();
-		System.out.println("Client says: " + message);//display Client message in the console
+		System.out.println("Client says: " + message);*/ //display Client message in the console
+		
 		//after they're done communicating, we need to close the socket
 		socket.close();
 		System.out.println("Socket is close.");// the purpose of this notifications is to know when we have passed a certain line of code
@@ -72,4 +76,35 @@ public class Server {
 //That's why we need InputStreamReader to switch that unreadable data into something a user can understand
 //BufferedReader we need to put all of that data into a buffer.
 //the "true" in PrintWriter turns on the the option of flushing. So this says to the socket that doesn't matter if the buffer is full or not, just flush the message
-//There are tcp packets that have PSH flag on, the 'push' flag
+//There are tcp packets that have PSH flag on, the 'push' flag, same thing as auto-flush. The reason for us to use flush in this program is
+//because the messages are quite short. So we'll never fill a buffer here. So anytime we use out_socket, it's automatically going to turn this push flag on
+//and the message is going to be pushed out of the buffer, even though the buffer isn't filled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
