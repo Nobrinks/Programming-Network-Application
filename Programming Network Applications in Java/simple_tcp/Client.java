@@ -11,12 +11,12 @@ public class Client {
 
 	public Client() throws Exception{
 		
-		//We need t create a socket, and this time we only have one type of socket.
+		//We need to create a socket, and this time we only have one type of socket.
 		//On the server side, we had two types of sockets: the server socket and then the regular communication socket
 		//On the Client side we're only going to have a regular communication socket
 		//we're going to forward two arguments to this method, the ip address of the server and the listening port
 		//so the port number where our server is expecting our connection
-		Socket socket = new Socket("localhost", 2020);//we're using localhost since the server is on this machine, and 2020 that is our port number
+		Socket socket = new Socket("192.168.1.70", 2020);//we're using localhost since the server is on this machine, and 2020 that is our port number
 		System.out.println("Successful connection to the server.");
 		//I/O Buffers: and they're exactly the same as on the server side
 		BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -50,6 +50,12 @@ public class Client {
 //Client Side
 //All we need is the Regular Socket on the client side
 
-
-
+//8. Bonus. Wireshark Analysis
+//What the communication between our server and client looks like in Wireshark
+//A modification, instead of connecting to the loopback address, we're goint to connect to the network address of this host. To see 
+//what that address is, go to prompt and type: ipconfig, at Ethernet Adapater Ethernet, IPv4 Address
+//In Wireshark software, select the Npcap Loopback Adapter option, and then run the Server and after the Client. When we open Wireshark, we can 
+//see our results.
+//In the first few packet we can see the typpical tcpconnection being established. They are called the three way handshake, SYNpacket, then SYN acknowledgement
+// and then another acknowledgement
 

@@ -1,6 +1,3 @@
-//Due to the package declaration, it takes to go back a directory and run the following command:
-//java simple_tcp.Server. Or just take the package out and run normally:
-//javac Server.java -> java Server
 package simple_tcp;
 
 import java.io.BufferedReader;
