@@ -20,7 +20,7 @@ public class Client {
 		Scanner keyboard = new Scanner(System.in);
 		
 		String message = in_socket.readLine();
-		System.out.println("Server syas: " + message);
+		System.out.println("Server says: " + message);
 		message = keyboard.nextLine();
 		out_socket.println(message);
 		
